@@ -97,64 +97,8 @@ class BlankFragment : Fragment() {
         }
 
 
-        var userimage: ImageView
-        Searchbutton_blank.setOnClickListener{ ///////////////// 이걸 누르면 사진이 서버로 전송됨.
-            /*
-            val bitmap = BitmapFactory.decodeResource(resources, R.drawable.mannish_33); // picture to send!!!!
 
-            // 여기에 파일 경로를 넣으면됩니다!!!!!
-            val file = File("/sdcard/Android/data/com.example.serverpractice/files/pictures", "img.jpg")
-
-            val outputStream = FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, outputStream)
-            outputStream.close()
-
-            val requestBody: RequestBody = MultipartBody.Builder()
-                .setType(MultipartBody.FORM)
-                .addFormDataPart(
-                    "image", "img.jpg",
-                    RequestBody.create("image/jpg".toMediaTypeOrNull(), file)
-                )
-                .addFormDataPart("somParam", "someValue")
-                .build()
-
-            if (file.exists()) {
-                println("i am here")
-            } else {
-                println("not!!!!")
-            }
-
-            val url = "http://192.168.219.100:5000/"
-            val client = OkHttpClient.Builder()
-                .connectTimeout(1000, TimeUnit.SECONDS)
-                .writeTimeout(1000, TimeUnit.SECONDS)
-                .readTimeout(1000, TimeUnit.SECONDS)
-                .build();
-
-
-            val request = Request.Builder().url(url).header("Connection", "close").post(requestBody).build()
-
-            client.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    e.printStackTrace()
-                    println("error!!!")
-                }
-
-                override fun onResponse(call: Call, response: Response) {
-                    // val textView = findViewById<TextView>(R.id.textView)
-
-                    val file = response.body?.byteStream()
-                    val bitmap = BitmapFactory.decodeStream(file)
-
-
-                    activity?.runOnUiThread {
-                        userimage = view.findViewById(R.id.imageView2)
-                        userimage.setImageBitmap(bitmap);
-                    }
-
-
-                }
-            })*/
+        Searchbutton_blank.setOnClickListener{
             navController.navigate(R.id.action_blankFragment_to_searchFragment)
         }
 
