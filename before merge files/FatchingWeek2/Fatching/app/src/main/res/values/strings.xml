@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Fatching</string>
+    <string name="main_title_F">F</string>
+    <string name="main_title_atching">atching</string>
+    <string name="sub_title">Hang your clothes!</string>
+    <string name="next_text"><u>If you don\'t have pictures?\n Or for advanced search</u></string>
+    <string name="clothes_category">Category</string>
+    <string name="clothes_color">Color</string>
+    <string name="clothes_length">Length</string>
+    <string name="fatching">Fatching</string>
+    <string name="category_top">Top</string>
+    <string name="category_bottom">Bottom</string>
+    <string name="category_dress">Dress</string>
+    <string name="category_skirt">Skirt</string>
+    <string name="length_short">Short</string>
+    <string name="length_midi">Midi</string>
+    <string name="length_long">Long</string>
+    <string name="search_button">Search!</string>
+    <string name="IfYou">If you don\&apos;t have pictures, it\&apos;s okay <![CDATA[:)]]></string>
+
+
+
+</resources>

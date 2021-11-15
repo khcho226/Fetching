@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:weightSum="6"
+    tools:context=".fragment.NextFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        >
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_horizontal"
+            android:text="@string/fatching"
+            android:textColor="@color/purple_main1"
+            android:textSize="32sp" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="3"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <CheckBox
+                        android:id="@+id/checkBox_top"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/category_top"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_bottom"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/category_bottom"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_dress"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/category_dress"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_skirt"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/category_skirt"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/clothes_category"
+                    android:textColor="@color/purple_main2"
+                    android:textSize="23sp" />
+            </androidx.cardview.widget.CardView>
+
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="9">
+
+                    <ImageView
+                        android:id="@+id/imageViewRed"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/red"
+
+                        />
+
+                    <ImageView
+                        android:id="@+id/imageViewOrange"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/orange" />
+
+                    <ImageView
+                        android:id="@+id/imageViewYellow"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/yellow" />
+
+                    <ImageView
+                        android:id="@+id/imageViewGreen"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/green" />
+
+                    <ImageView
+                        android:id="@+id/imageViewBlue"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/blue" />
+
+                    <ImageView
+                        android:id="@+id/imageViewNavy"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/navy" />
+
+                    <ImageView
+                        android:id="@+id/imageViewPurple"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/purple" />
+
+                    <ImageView
+                        android:id="@+id/imageViewBlack"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/black" />
+
+                    <ImageView
+                        android:id="@+id/imageViewWhite"
+                        android:layout_width="15dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/white" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/clothes_color"
+                    android:textColor="@color/purple_main2"
+                    android:textSize="23sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <CheckBox
+                        android:id="@+id/checkBox_short"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/length_short"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_midi"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/length_midi"
+                        android:textSize="15sp" />
+
+                    <CheckBox
+                        android:id="@+id/checkBox_long"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="sans-serif-black"
+                        android:text="@string/length_long"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/clothes_length"
+                    android:textColor="@color/purple_main2"
+                    android:textSize="23sp" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fatching_purplesquare"
+
+            />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:src="@drawable/fatching_hanger"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="top"/>
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/sub_title"
+            android:textColor="@color/purple_main2"
+            android:textSize="25sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/textViewIfYou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="40dp"
+            android:text="@string/IfYou"
+
+            />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2" >
+
+        <Button
+            android:id="@+id/button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/search_button"
+            android:layout_marginTop="10dp"
+            />
+    </androidx.cardview.widget.CardView>
+    </LinearLayout>
