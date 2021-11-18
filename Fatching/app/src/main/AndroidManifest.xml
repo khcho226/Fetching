@@ -22,7 +22,7 @@
         android:fullBackupContent="@xml/backup_descriptor">
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.example.myapplication.fileprovider"
+            android:authorities="com.example.myapplication"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
