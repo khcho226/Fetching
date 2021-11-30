@@ -40,12 +40,18 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 import android.widget.*
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.example.myapplication.databinding.FragmentNextBinding
 
 class NextFragment : Fragment() {
 
     var mImageView: ImageView? = null
     val REQUEST_IMAGE_CAPTURE=1
     lateinit var currentPhotoPath: String
+    lateinit var imgpath: Uri
     val Fragment.packageManager get() = activity?.packageManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +65,16 @@ class NextFragment : Fragment() {
 
         val view=inflater.inflate(R.layout.fragment_next, container, false)
         mImageView=view.findViewById(R.id.imageView7)
+
         view.findViewById<Button>(R.id.Searchbutton).setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_nextFragment_to_searchFragment)
+
+            val path = imgpath.toString()
+            val im = Uri.parse(path)
+            var a = im.path // 카메라에서 온 경우
+            val action = NextFragmentDirections.actionNextFragmentToSearchFragment(path = a)
+            findNavController().navigate(action)
+
+            //Navigation.findNavController(view).navigate(R.id.action_nextFragment_to_searchFragment)
         }
 
         return view
@@ -166,10 +180,14 @@ class NextFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        UploadPicture.setOnClickListener {
+        Log.d("TAG", "hello world")
+        UploadPicture.setOnClickListener { // 사진 카메라로 부터 받아오기. (클릭시)
             if ( (activity as MainActivity).checkPermission() ){
-                (activity as MainActivity).dispatchTakePictureIntent()
+                imgpath = (activity as MainActivity).dispatchTakePictureIntent()
+                Log.d("TAG", imgpath.toString())
+                Glide.with(this)
+                    .load(imgpath)
+                    .into(imageView7);
             }
             else {
                 (activity as MainActivity).requestPermission()

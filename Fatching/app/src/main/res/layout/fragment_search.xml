@@ -44,25 +44,25 @@
             android:text="Recommended Items"
             android:textColor="@color/purple_200"
             android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintBottom_toTopOf="@+id/imageView9"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imageView8"
             android:layout_width="120dp"
             android:layout_height="160dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="152dp"
             android:layout_marginEnd="10dp"
             android:src="@drawable/clothes_square"
-            app:layout_constraintEnd_toStartOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/imageView9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/imageView9"
             android:layout_width="120dp"
             android:layout_height="160dp"
             android:layout_marginTop="152dp"
@@ -73,7 +73,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/imageView10"
             android:layout_width="120dp"
             android:layout_height="160dp"
             android:layout_marginStart="10dp"
@@ -81,11 +81,11 @@
             android:layout_marginEnd="5dp"
             android:src="@drawable/clothes_square"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView3"
+            app:layout_constraintStart_toEndOf="@+id/imageView9"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imageView11"
             android:layout_width="120dp"
             android:layout_height="160dp"
             android:layout_marginStart="10dp"
@@ -94,10 +94,10 @@
             android:src="@drawable/clothes_square"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView6" />
+            app:layout_constraintStart_toEndOf="@+id/imageView12" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/imageView12"
             android:layout_width="120dp"
             android:layout_height="160dp"
             android:layout_marginBottom="170dp"
@@ -107,15 +107,15 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/imageView13"
+            android:layout_width="120dp"
+            android:layout_height="160dp"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="170dp"
             android:src="@drawable/clothes_square"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageView6"
+            app:layout_constraintEnd_toStartOf="@+id/imageView12"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button

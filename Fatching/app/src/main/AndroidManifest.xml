@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" /> //카메라 권한 설정
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> //저장 권한 설정
     <uses-permission android:name="android.hardware.camera" android:required="false" /> //카메라 기능이 무조건적으로 필요하지 않을 때
 

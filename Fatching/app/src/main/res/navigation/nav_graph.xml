@@ -13,6 +13,7 @@
         <action
             android:id="@+id/action_nextFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
@@ -29,10 +30,21 @@
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.myapplication.fragment.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" >
+        android:label="fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_blankFragment"
             app:destination="@id/blankFragment" />
+        <argument
+            android:name="path"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="pathfromblank"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+
     </fragment>
 </navigation>

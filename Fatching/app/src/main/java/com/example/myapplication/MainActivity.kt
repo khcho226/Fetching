@@ -16,12 +16,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.myapplication.databinding.ActivityMainBinding
+import com.example.myapplication.fragment.BlankFragment
 import com.example.myapplication.fragment.NextFragment
+import com.example.myapplication.fragment.SearchFragment
 import java.io.File
 import java.io.IOException
+import java.net.URI
+import java.sql.Types.NULL
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -59,7 +64,8 @@ class MainActivity : AppCompatActivity(){
         }
     }
 
-    fun dispatchTakePictureIntent() {
+    fun dispatchTakePictureIntent(): Uri {
+        lateinit var photoURI: Uri
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also{ takePictureIntent ->
             if (takePictureIntent.resolveActivity(this.packageManager)!=null ) {
                 val photoFile: File? =
@@ -71,21 +77,28 @@ class MainActivity : AppCompatActivity(){
                     }
                 if (Build.VERSION.SDK_INT<24) {
                     if (photoFile!=null){
-                        val photoURI=Uri.fromFile(photoFile)
+                        photoURI=Uri.fromFile(photoFile)
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI)
                         startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE)
+                        Log.d("TAG", photoURI.toString())
+                        return photoURI
                     }
                 } else {
                     photoFile?.also {
-                        val photoURI: Uri = FileProvider.getUriForFile (
+                        photoURI= FileProvider.getUriForFile (
                             this, "com.example.myapplication", it
                         )
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                        Log.d("TAG", photoURI.toString())
+                        return photoURI
                     }
                 }
+
             }
+
         }
+        return photoURI
     }
 
     fun createImageFile(): File {
@@ -102,13 +115,13 @@ class MainActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
     }
-
 
 
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {

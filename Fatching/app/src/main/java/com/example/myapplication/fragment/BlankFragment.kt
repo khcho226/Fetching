@@ -4,10 +4,14 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.provider.DocumentsContract
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +20,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.fragment_blank.*
 import kotlinx.android.synthetic.main.fragment_blank.ButtonStyple_blank
@@ -35,6 +40,7 @@ class BlankFragment : Fragment() {
     private lateinit var navController: NavController
     var mImageview: ImageView? = null
     private lateinit var imageView: ImageView
+    var pathfromblank = "null"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -72,6 +78,7 @@ class BlankFragment : Fragment() {
         cameraIntent.type = "image/*"
         if (cameraIntent.resolveActivity(requireActivity().packageManager) != null) {
             startActivityForResult(cameraIntent, 1000)
+
         }
     }
 
@@ -81,7 +88,12 @@ class BlankFragment : Fragment() {
                 val returnUri = data!!.data
                 val bitmapImage =
                     MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, returnUri)
-                mImageview!!.setImageBitmap(bitmapImage)
+                mImageview?.setImageBitmap(bitmapImage)
+                mImageview?.bringToFront()
+
+                pathfromblank = returnUri.toString()
+
+                Log.d("URI!!!", returnUri.toString())
             }
         }
     }
@@ -93,13 +105,21 @@ class BlankFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
         detail.setOnClickListener {
+
+
             navController.navigate(R.id.action_blankFragment_to_nextFragment)
         }
 
 
 
         Searchbutton_blank.setOnClickListener{
-            navController.navigate(R.id.action_blankFragment_to_searchFragment)
+            println("hi?")
+            println(pathfromblank)
+            val im = Uri.parse(pathfromblank)
+            var path = getRealPathFromURI(im)
+            val action = BlankFragmentDirections.actionBlankFragmentToSearchFragment(path = path)
+            findNavController().navigate(action)
+            // navController.navigate(R.id.action_blankFragment_to_searchFragment)
         }
 
 
@@ -134,5 +154,32 @@ class BlankFragment : Fragment() {
             }
             popupMenu.show()
         }
+    }
+
+    private fun getRealPathFromURI(contentUri: Uri): String? {
+        if (contentUri.path!!.startsWith("/storage")) {
+            return contentUri.path
+        }
+        val id = DocumentsContract.getDocumentId(contentUri).split(":").toTypedArray()[1]
+        val columns = arrayOf(MediaStore.Files.FileColumns.DATA)
+        val selection = MediaStore.Files.FileColumns._ID + " = " + id
+        val cursor: Cursor? = activity?.contentResolver?.query(
+            MediaStore.Files.getContentUri("external"),
+            columns,
+            selection,
+            null,
+            null
+        )
+        try {
+            val columnIndex = cursor?.getColumnIndex(columns[0])
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    return columnIndex?.let { cursor.getString(it) }
+                }
+            }
+        } finally {
+            cursor?.close()
+        }
+        return null
     }
 }
