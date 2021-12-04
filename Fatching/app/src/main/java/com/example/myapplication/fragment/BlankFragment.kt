@@ -2,6 +2,7 @@ package com.example.myapplication.fragment
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
@@ -21,9 +22,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.fragment_blank.*
-import kotlinx.android.synthetic.main.fragment_blank.ButtonStyple_blank
+//import kotlinx.android.synthetic.main.fragment_blank.ButtonStyle_blank
 import kotlinx.android.synthetic.main.fragment_next.*
 import java.io.File
 import java.io.FileOutputStream
@@ -42,6 +44,8 @@ class BlankFragment : Fragment() {
     private lateinit var imageView: ImageView
     var pathfromblank = "null"
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
 
@@ -52,6 +56,25 @@ class BlankFragment : Fragment() {
         //view.findViewById<Button>(R.id.Searchbutton_blank).setOnClickListener{
         //    Navigation.findNavController(view).navigate(R.id.action_blankFragment_to_searchFragment)
         //}
+
+
+        ///////////////////////////////////////////////////////
+        val spinner = view.findViewById<Spinner>(R.id.Style_spinner)
+        var styleData = resources.getStringArray(R.array.styles)
+        spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.spinner_item, styleData) as SpinnerAdapter
+
+        spinner?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val type = parent?.getItemAtPosition(position).toString()
+                // Toast.makeText(activity,type, Toast.LENGTH_LONG).show()
+            }
+
+        }
+        ///////////////////////////////////////////////////////
+
 
 
         mImageview = view.findViewById<View>(R.id.uploadedpicture) as ImageView
@@ -113,7 +136,6 @@ class BlankFragment : Fragment() {
 
 
         Searchbutton_blank.setOnClickListener{
-            println("hi?")
             println(pathfromblank)
             val im = Uri.parse(pathfromblank)
             var path = getRealPathFromURI(im)
@@ -124,36 +146,36 @@ class BlankFragment : Fragment() {
 
 
 
-        ButtonStyple_blank.setOnClickListener{
-            val popupMenu = PopupMenu(this.activity, ButtonCategory)
-            popupMenu.menuInflater.inflate(R.menu.popupstyle, popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.category_top -> Toast.makeText(
-                        this@BlankFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_bottom -> Toast.makeText(
-                        this@BlankFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_dress -> Toast.makeText(
-                        this@BlankFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_outer -> Toast.makeText(
-                        this@BlankFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                true
-            }
-            popupMenu.show()
-        }
+//        ButtonStyle_blank.setOnClickListener{
+//            val popupMenu = PopupMenu(this.activity, ButtonStyle_blank)
+//            popupMenu.menuInflater.inflate(R.menu.popupstyle, popupMenu.menu)
+//            popupMenu.setOnMenuItemClickListener { item ->
+//                when (item.itemId) {
+//                    R.id.category_top -> Toast.makeText(
+//                        this@BlankFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_bottom -> Toast.makeText(
+//                        this@BlankFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_dress -> Toast.makeText(
+//                        this@BlankFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_outer -> Toast.makeText(
+//                        this@BlankFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                true
+//            }
+//            popupMenu.show()
+//        }
     }
 
     private fun getRealPathFromURI(contentUri: Uri): String? {

@@ -24,20 +24,21 @@
             android:textColor="@color/purple_500"
             android:textSize="45sp"
             android:textStyle="bold" />
+
         <ImageView
+            android:id="@+id/uploadedpicture"
             android:layout_width="342dp"
             android:layout_height="342dp"
-            android:layout_marginTop="80dp"
-            android:id="@+id/uploadedpicture"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp" />
 
         <TextView
+            android:id="@+id/gallery"
             android:layout_width="342dp"
             android:layout_height="342dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="80dp"
-            android:background="@drawable/backgroundpink"
-            android:id="@+id/gallery"/>
+            android:background="@drawable/backgroundpink" />
 
         <ImageView
             android:layout_width="200dp"
@@ -64,6 +65,15 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/advanced"
             android:id="@+id/detail" />
+        <Button
+            android:id="@+id/camera"
+            android:layout_width="51dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="360dp"
+            android:background="#00000000"
+            android:drawableLeft="@drawable/camera_button"
+            tools:ignore="SpeakableTextPresentCheck" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,22 +85,53 @@
             android:textColor="@color/purple_500"
             android:fontFamily="@font/bmjua_ttf"/>
 
-        <Button
-            android:id="@+id/ButtonStyple_blank"
+<!--        <Button-->
+<!--            android:id="@+id/ButtonStyle_blank"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="31dp"-->
+<!--            android:layout_marginTop="480dp"-->
+<!--            android:layout_marginBottom="3sp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/optionbackground"-->
+<!--            android:drawableRight="@drawable/arrow_size"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:paddingLeft="20sp"-->
+<!--            android:paddingRight="20sp"-->
+<!--            android:text="@string/clothes_style"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textSize="20sp"-->
+<!--            tools:ignore="TouchTargetSizeCheck" />-->
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="31dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
             android:layout_marginTop="480dp"
-            android:layout_marginBottom="3sp"
-            android:layout_weight="1"
-            android:background="@drawable/optionbackground"
-            android:drawableRight="@drawable/arrow_size"
-            android:gravity="center_vertical"
-            android:paddingLeft="20sp"
-            android:paddingRight="20sp"
-            android:text="@string/clothes_style"
-            android:textAllCaps="false"
-            android:textSize="20sp"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:layout_weight=".28"
+            android:background="@drawable/spinner_border"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/Style_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/drop_button" />
+        </RelativeLayout>
 
         <Button
             android:id="@+id/Searchbutton_blank"

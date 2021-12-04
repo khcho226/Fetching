@@ -28,11 +28,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginEnd="19dp"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="@font/bmjua_ttf"
                 android:gravity="center_horizontal"
                 android:text="@string/main_title_atching"
-                android:textColor="@color/purple_main1"
-                android:textSize="32sp"
+                android:textColor="@color/purple_200"
+                android:textSize="45sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -44,11 +44,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="sans-serif-black"
+                android:fontFamily="@font/bmjua_ttf"
                 android:gravity="center_horizontal"
                 android:text="@string/main_title_F"
-                android:textColor="@color/purple_main2"
-                android:textSize="32sp"
+                android:textColor="@color/purple_500"
+                android:textSize="45sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textView6"
                 app:layout_constraintEnd_toStartOf="@+id/textView6"
                 app:layout_constraintHorizontal_chainStyle="packed"
@@ -57,258 +57,400 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
 
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="7dp"
         android:layout_weight="2">
 
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:orientation="vertical"
-            android:weightSum="5">
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight=".28"
+            android:background="@drawable/spinner_border"
+            android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/ButtonCategory"
+            <Spinner
+                android:id="@+id/Style_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_weight="1"
-                android:background="@drawable/optionbackground"
-                android:drawableRight="@drawable/arrow_size"
-                android:gravity="center_vertical"
-                android:paddingLeft="20sp"
-                android:paddingRight="20sp"
-                android:text="@string/clothes_category"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
 
-            <Button
-                android:id="@+id/ButtonStyple"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/drop_button" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight=".28"
+            android:background="@drawable/spinner_border"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/Category_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_weight="1"
-                android:background="@drawable/optionbackground"
-                android:drawableRight="@drawable/arrow_size"
-                android:gravity="center_vertical"
-                android:paddingLeft="20sp"
-                android:paddingRight="20sp"
-                android:text="@string/clothes_style"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
 
-            <Button
-                android:id="@+id/ButtonColor"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/drop_button" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="80dp"
+            android:layout_weight=".28"
+            android:background="@drawable/spinner_border"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/Color_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_weight="1"
-                android:background="@drawable/optionbackground"
-                android:drawableRight="@drawable/arrow_size"
-                android:gravity="center_vertical"
-                android:paddingLeft="20sp"
-                android:paddingRight="20sp"
-                android:text="@string/clothes_color"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
 
-            <Button
-                android:id="@+id/ButtonLength"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/drop_button" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="120dp"
+            android:layout_weight=".28"
+            android:background="@drawable/spinner_border"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/Fit_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_weight="1"
-                android:background="@drawable/optionbackground"
-                android:drawableRight="@drawable/arrow_size"
-                android:gravity="center_vertical"
-                android:paddingLeft="20sp"
-                android:paddingRight="20sp"
-                android:text="@string/clothes_length"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
 
-            <Button
-                android:id="@+id/ButtonFit"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/drop_button" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="160dp"
+            android:layout_weight=".28"
+            android:background="@drawable/spinner_border"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/Length_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="3sp"
-                android:layout_marginBottom="3sp"
-                android:layout_weight="1"
-                android:background="@drawable/optionbackground"
-                android:drawableRight="@drawable/arrow_size"
-                android:gravity="center_vertical"
-                android:paddingLeft="20sp"
-                android:paddingRight="20sp"
-                android:text="@string/clothes_fit"
-                android:textAllCaps="false"
-                android:textSize="20sp"
-                tools:ignore="TouchTargetSizeCheck" />
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/drop_button" />
+        </RelativeLayout>
 
 
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_marginBottom="0dp"-->
-            <!--                android:layout_weight="1">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginStart="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:weightSum="5">-->
 
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:orientation="horizontal"-->
-            <!--                    android:weightSum="4">-->
+<!--            <Button-->
+<!--                android:id="@+id/ButtonCategory"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_marginTop="3sp"-->
+<!--                android:layout_marginBottom="3sp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/optionbackground"-->
+<!--                android:drawableRight="@drawable/arrow_size"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="20sp"-->
+<!--                android:paddingRight="20sp"-->
+<!--                android:text="@string/clothes_category"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="20sp"-->
+<!--                tools:ignore="TouchTargetSizeCheck" />-->
 
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/checkBox_top"-->
-            <!--                        android:layout_width="0dp"-->
-            <!--                        android:layout_height="match_parent"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="sans-serif-black"-->
-            <!--                        android:text="@string/category_top"-->
-            <!--                        android:textSize="15sp" />-->
+<!--            <Button-->
+<!--                android:id="@+id/ButtonStyple"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_marginTop="3sp"-->
+<!--                android:layout_marginBottom="3sp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/optionbackground"-->
+<!--                android:drawableRight="@drawable/arrow_size"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="20sp"-->
+<!--                android:paddingRight="20sp"-->
+<!--                android:text="@string/clothes_style"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="20sp"-->
+<!--                tools:ignore="TouchTargetSizeCheck" />-->
 
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/checkBox_bottom"-->
-            <!--                        android:layout_width="0dp"-->
-            <!--                        android:layout_height="match_parent"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="sans-serif-black"-->
-            <!--                        android:text="@string/category_bottom"-->
-            <!--                        android:textSize="15sp" />-->
+<!--            <Button-->
+<!--                android:id="@+id/ButtonColor"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_marginTop="3sp"-->
+<!--                android:layout_marginBottom="3sp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/optionbackground"-->
+<!--                android:drawableRight="@drawable/arrow_size"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="20sp"-->
+<!--                android:paddingRight="20sp"-->
+<!--                android:text="@string/clothes_color"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="20sp"-->
+<!--                tools:ignore="TouchTargetSizeCheck" />-->
 
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/checkBox_dress"-->
-            <!--                        android:layout_width="0dp"-->
-            <!--                        android:layout_height="match_parent"-->
+<!--            <Button-->
+<!--                android:id="@+id/ButtonLength"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_marginTop="3sp"-->
+<!--                android:layout_marginBottom="3sp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/optionbackground"-->
+<!--                android:drawableRight="@drawable/arrow_size"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="20sp"-->
+<!--                android:paddingRight="20sp"-->
+<!--                android:text="@string/clothes_length"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="20sp"-->
+<!--                tools:ignore="TouchTargetSizeCheck" />-->
 
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="sans-serif-black"-->
-            <!--                        android:text="@string/category_dress"-->
-            <!--                        android:textSize="15sp" />-->
-
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/checkBox_skirt"-->
-            <!--                        android:layout_width="0dp"-->
-            <!--                        android:layout_height="match_parent"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="sans-serif-black"-->
-            <!--                        android:text="@string/category_skirt"-->
-            <!--                        android:textSize="15sp" />-->
-            <!--                </LinearLayout>-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView8"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:fontFamily="sans-serif-black"-->
-            <!--                    android:text="@string/clothes_category"-->
-            <!--                    android:textColor="@color/purple_main2"-->
-            <!--                    android:textSize="23sp" />-->
-            <!--            </androidx.cardview.widget.CardView>-->
-
-
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_weight="1" >-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:orientation="horizontal"-->
-            <!--                    android:weightSum="12">-->
-
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/imageViewRed"-->
-            <!--                        android:layout_width="15dp"-->
-            <!--                        android:layout_height="25dp"-->
-            <!--                        android:layout_marginTop="40dp"-->
-            <!--                        android:layout_marginBottom="10dp"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:button="@null"-->
-            <!--                        android:background="@drawable/checkboxcustom_red"-->
-            <!--                        />-->
-
-            <!--                     />-->
-
-            <!--                </LinearLayout>-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView10"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:fontFamily="sans-serif-black"-->
-            <!--                    android:text="@string/clothes_color"-->
-            <!--                    android:textColor="@color/purple_main2"-->
-            <!--                    android:textSize="23sp" />-->
-
-            <!--            </androidx.cardview.widget.CardView>-->
-
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_marginBottom="0dp"-->
-            <!--                android:layout_weight="1">-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="match_parent"-->
-            <!--                    android:orientation="horizontal"-->
-            <!--                    android:weightSum="3">-->
-
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/checkBox_short"-->
-            <!--                        android:layout_width="0dp"-->
-            <!--                        android:layout_height="match_parent"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="sans-serif-black"-->
-            <!--                        android:text="@string/length_short"-->
-            <!--                        android:textSize="15sp" />-->
-
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/checkBox_midi"-->
-            <!--                        android:layout_width="0dp"-->
-            <!--                        android:layout_height="match_parent"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="sans-serif-black"-->
-            <!--                        android:text="@string/length_midi"-->
-            <!--                        android:textSize="15sp" />-->
-
-            <!--                    <CheckBox-->
-            <!--                        android:id="@+id/checkBox_long"-->
-            <!--                        android:layout_width="0dp"-->
-            <!--                        android:layout_height="match_parent"-->
-            <!--                        android:layout_weight="1"-->
-            <!--                        android:fontFamily="sans-serif-black"-->
-            <!--                        android:text="@string/length_long"-->
-            <!--                        android:textSize="15sp" />-->
+<!--            <Button-->
+<!--                android:id="@+id/ButtonFit"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:layout_marginTop="3sp"-->
+<!--                android:layout_marginBottom="3sp"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/optionbackground"-->
+<!--                android:drawableRight="@drawable/arrow_size"-->
+<!--                android:gravity="center_vertical"-->
+<!--                android:paddingLeft="20sp"-->
+<!--                android:paddingRight="20sp"-->
+<!--                android:text="@string/clothes_fit"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textSize="20sp"-->
+<!--                tools:ignore="TouchTargetSizeCheck" />-->
 
 
-            <!--                </LinearLayout>-->
+<!--            &lt;!&ndash;            <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_height="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_marginBottom="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_weight="1">&ndash;&gt;-->
 
-            <!--                <TextView-->
-            <!--                    android:id="@+id/textView9"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:fontFamily="sans-serif-black"-->
-            <!--                    android:text="@string/clothes_length"-->
-            <!--                    android:textColor="@color/purple_main2"-->
-            <!--                    android:textSize="23sp" />-->
-            <!--            </androidx.cardview.widget.CardView>-->
+<!--            &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:weightSum="4">&ndash;&gt;-->
 
-        </LinearLayout>
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/checkBox_top"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:text="@string/category_top"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:textSize="15sp" />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/checkBox_bottom"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:text="@string/category_bottom"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:textSize="15sp" />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/checkBox_dress"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:text="@string/category_dress"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:textSize="15sp" />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/checkBox_skirt"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:text="@string/category_skirt"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:textSize="15sp" />&ndash;&gt;-->
+<!--            &lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:id="@+id/textView8"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:text="@string/clothes_category"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:textColor="@color/purple_main2"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:textSize="23sp" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+
+<!--            &lt;!&ndash;            <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_height="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_weight="1" >&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:weightSum="12">&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/imageViewRed"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="15dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="25dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_marginTop="40dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_marginBottom="10dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:button="@null"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:background="@drawable/checkboxcustom_red"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                     />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:id="@+id/textView10"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:text="@string/clothes_color"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:textColor="@color/purple_main2"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:textSize="23sp" />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;            </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;            <androidx.cardview.widget.CardView&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_height="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_marginBottom="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                android:layout_weight="1">&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                <LinearLayout&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:weightSum="3">&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/checkBox_short"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:text="@string/length_short"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:textSize="15sp" />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/checkBox_midi"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:text="@string/length_midi"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:textSize="15sp" />&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                    <CheckBox&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:id="@+id/checkBox_long"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_width="0dp"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:layout_weight="1"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:text="@string/length_long"&ndash;&gt;-->
+<!--            &lt;!&ndash;                        android:textSize="15sp" />&ndash;&gt;-->
+
+
+<!--            &lt;!&ndash;                </LinearLayout>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;                <TextView&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:id="@+id/textView9"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:fontFamily="sans-serif-black"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:text="@string/clothes_length"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:textColor="@color/purple_main2"&ndash;&gt;-->
+<!--            &lt;!&ndash;                    android:textSize="23sp" />&ndash;&gt;-->
+<!--            &lt;!&ndash;            </androidx.cardview.widget.CardView>&ndash;&gt;-->
+
+<!--        </LinearLayout>-->
     </androidx.cardview.widget.CardView>
 
 
@@ -346,10 +488,10 @@
                         android:layout_height="0dp"
                         android:layout_gravity="center"
                         android:layout_weight="1"
-                        android:fontFamily="sans-serif-black"
+                        android:fontFamily="@font/bmjua_ttf"
                         android:gravity="center"
                         android:text="@string/sub_title"
-                        android:textColor="@color/purple_main2"
+                        android:textColor="@color/purple_200"
                         android:textSize="30sp" />
 
                     <TextView

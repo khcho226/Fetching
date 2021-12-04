@@ -44,7 +44,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.myapplication.databinding.FragmentNextBinding
+
 
 class NextFragment : Fragment() {
 
@@ -76,6 +76,79 @@ class NextFragment : Fragment() {
 
             //Navigation.findNavController(view).navigate(R.id.action_nextFragment_to_searchFragment)
         }
+
+        ///////////////////////////////////////////////////////
+        val style_spinner = view.findViewById<Spinner>(R.id.Style_spinner)
+        var styleData = resources.getStringArray(R.array.styles)
+        style_spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.spinner_item, styleData) as SpinnerAdapter
+
+        style_spinner?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val type = parent?.getItemAtPosition(position).toString()
+                // Toast.makeText(activity,type, Toast.LENGTH_LONG).show()
+            }
+
+        }
+        val category_spinner = view.findViewById<Spinner>(R.id.Category_spinner)
+        var categoryData = resources.getStringArray(R.array.category)
+        category_spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.spinner_item, categoryData) as SpinnerAdapter
+
+        category_spinner?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val type = parent?.getItemAtPosition(position).toString()
+                // Toast.makeText(activity,type, Toast.LENGTH_LONG).show()
+            }
+
+        }
+        val color_spinner = view.findViewById<Spinner>(R.id.Color_spinner)
+        var colorData = resources.getStringArray(R.array.color)
+        color_spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.spinner_item, colorData) as SpinnerAdapter
+
+        color_spinner?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val type = parent?.getItemAtPosition(position).toString()
+                // Toast.makeText(activity,type, Toast.LENGTH_LONG).show()
+            }
+
+        }
+        val fit_spinner = view.findViewById<Spinner>(R.id.Fit_spinner)
+        var fitData = resources.getStringArray(R.array.fit)
+        fit_spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.spinner_item, fitData) as SpinnerAdapter
+
+        fit_spinner?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val type = parent?.getItemAtPosition(position).toString()
+                // Toast.makeText(activity,type, Toast.LENGTH_LONG).show()
+            }
+
+        }
+        val length_spinner = view.findViewById<Spinner>(R.id.Length_spinner)
+        var lengthData = resources.getStringArray(R.array.length)
+        length_spinner?.adapter = ArrayAdapter(activity?.applicationContext!!, R.layout.spinner_item, lengthData) as SpinnerAdapter
+
+        length_spinner?.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val type = parent?.getItemAtPosition(position).toString()
+                // Toast.makeText(activity,type, Toast.LENGTH_LONG).show()
+            }
+
+        }
+        ///////////////////////////////////////////////////////
 
         return view
     }
@@ -194,161 +267,161 @@ class NextFragment : Fragment() {
             }
         }
 
-        ButtonCategory.setOnClickListener {
-            val popupMenu = PopupMenu(this.activity, ButtonCategory)
-            popupMenu.menuInflater.inflate(R.menu.popupcategory,popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.category_top -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_bottom -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_dress -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_outer -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                true
-            }
-            popupMenu.show()
-        }
-
-        ButtonStyple.setOnClickListener {
-            val popupMenu = PopupMenu(this.activity, ButtonCategory)
-            popupMenu.menuInflater.inflate(R.menu.popupstyle,popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.category_top -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_bottom -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_dress -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_outer -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                true
-            }
-            popupMenu.show()
-        }
-
-        ButtonColor.setOnClickListener {
-            val popupMenu = PopupMenu(this.activity, ButtonColor)
-            popupMenu.menuInflater.inflate(R.menu.popupcolor,popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.category_top -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_bottom -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_dress -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_outer -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                true
-            }
-            popupMenu.show()
-        }
-
-        ButtonLength.setOnClickListener {
-            val popupMenu = PopupMenu(this.activity, ButtonLength)
-            popupMenu.menuInflater.inflate(R.menu.popuplength,popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.category_top -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_bottom -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_dress -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_outer -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                true
-            }
-            popupMenu.show()
-        }
-
-
-        ButtonFit.setOnClickListener {
-            val popupMenu = PopupMenu(this.activity, ButtonFit)
-            popupMenu.menuInflater.inflate(R.menu.popupfit,popupMenu.menu)
-            popupMenu.setOnMenuItemClickListener { item ->
-                when (item.itemId) {
-                    R.id.category_top -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_bottom -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_dress -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    R.id.category_outer -> Toast.makeText(
-                        this@NextFragment.activity,
-                        "You Clicked:" + item.title,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                true
-            }
-            popupMenu.show()
-        }
+//        ButtonCategory.setOnClickListener {
+//            val popupMenu = PopupMenu(this.activity, ButtonCategory)
+//            popupMenu.menuInflater.inflate(R.menu.popupcategory,popupMenu.menu)
+//            popupMenu.setOnMenuItemClickListener { item ->
+//                when (item.itemId) {
+//                    R.id.category_top -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_bottom -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_dress -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_outer -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                true
+//            }
+//            popupMenu.show()
+//        }
+//
+//        ButtonStyple.setOnClickListener {
+//            val popupMenu = PopupMenu(this.activity, ButtonStyple)
+//            popupMenu.menuInflater.inflate(R.menu.popupstyle,popupMenu.menu)
+//            popupMenu.setOnMenuItemClickListener { item ->
+//                when (item.itemId) {
+//                    R.id.category_top -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_bottom -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_dress -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_outer -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                true
+//            }
+//            popupMenu.show()
+//        }
+//
+//        ButtonColor.setOnClickListener {
+//            val popupMenu = PopupMenu(this.activity, ButtonLength)
+//            popupMenu.menuInflater.inflate(R.menu.popupcolor,popupMenu.menu)
+//            popupMenu.setOnMenuItemClickListener { item ->
+//                when (item.itemId) {
+//                    R.id.category_top -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_bottom -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_dress -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_outer -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                true
+//            }
+//            popupMenu.show()
+//        }
+//
+//        ButtonLength.setOnClickListener {
+//            val popupMenu = PopupMenu(this.activity, ButtonLength)
+//            popupMenu.menuInflater.inflate(R.menu.popuplength,popupMenu.menu)
+//            popupMenu.setOnMenuItemClickListener { item ->
+//                when (item.itemId) {
+//                    R.id.category_top -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_bottom -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_dress -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_outer -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                true
+//            }
+//            popupMenu.show()
+//        }
+//
+//
+//        ButtonFit.setOnClickListener {
+//            val popupMenu = PopupMenu(this.activity, ButtonFit)
+//            popupMenu.menuInflater.inflate(R.menu.popupfit,popupMenu.menu)
+//            popupMenu.setOnMenuItemClickListener { item ->
+//                when (item.itemId) {
+//                    R.id.category_top -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_bottom -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_dress -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    R.id.category_outer -> Toast.makeText(
+//                        this@NextFragment.activity,
+//                        "You Clicked:" + item.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                true
+//            }
+//            popupMenu.show()
+//        }
     }
 
 
