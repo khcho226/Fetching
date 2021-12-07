@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="styles">
+        <item><b>STYLE</b></item>
+        <item>Manish</item>
+        <item>Modern</item>
+        <item>Military</item>
+    </string-array>
+    <string-array name="category">
+        <item><b>CATEGORY</b></item>
+        <item>Top</item>
+        <item>Bottom</item>
+        <item>Dress</item>
+        <item>Outer</item>
+    </string-array>
+    <string-array name="color">
+        <item><b>COLOR</b></item>
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Brown</item>
+        <item>Green</item>
+        <item>Grey</item>
+        <item>Orange</item>
+        <item>Pink</item>
+        <item>Red</item>
+        <item>Skyblue</item>
+        <item>Violet</item>
+        <item>White</item>
+        <item>Yellow</item>
+    </string-array>
+    <string-array name="fit">
+        <item>FIT</item>
+        <item>Tight</item>
+        <item>Normal</item>
+        <item>Loose</item>
+    </string-array>
+    <string-array name="length">
+        <item>LENGTH</item>
+        <item>Short</item>
+        <item>Middle</item>
+        <item>Long</item>
+    </string-array>
+</resources>
