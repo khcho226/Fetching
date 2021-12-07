@@ -8,8 +8,11 @@ import android.content.pm.PackageManager
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.ImageDecoder
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Log
@@ -18,10 +21,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.fragment_blank.*
@@ -34,16 +39,19 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
-
+import java.text.SimpleDateFormat
 
 
 class BlankFragment : Fragment() {
 
     private lateinit var navController: NavController
     var mImageview: ImageView? = null
-    private lateinit var imageView: ImageView
     var pathfromblank = "null"
 
+    val REQUEST_IMAGE_CAPTURE=1
+    val REQUEST_GALLERY_TAKE =2
+    lateinit var currentPhotoPath: String
+    lateinit var imgpath: Uri
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -77,46 +85,69 @@ class BlankFragment : Fragment() {
 
 
 
-        mImageview = view.findViewById<View>(R.id.uploadedpicture) as ImageView
-        view.findViewById<TextView>(R.id.gallery).setOnClickListener {
-            if (ActivityCompat.checkSelfPermission(
-                    requireActivity(),
-                    Manifest.permission.READ_EXTERNAL_STORAGE
-                ) != PackageManager.PERMISSION_GRANTED
-            ) {
-                requestPermissions(
-                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-                    2000
-                )
-            } else {
-                startGallery()
-            }
-        }
+        mImageview = view.findViewById(R.id.uploadedpicture)
+
+        //////////////////////////////////////////////////
+
+        /////////////////////////////////////////////
         return view
     }
-    var cameraIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 
     private fun startGallery() {
         val cameraIntent = Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         cameraIntent.type = "image/*"
         if (cameraIntent.resolveActivity(requireActivity().packageManager) != null) {
-            startActivityForResult(cameraIntent, 1000)
+            startActivityForResult(cameraIntent, 2)
 
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == 1000) {
-                val returnUri = data!!.data
-                val bitmapImage =
-                    MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, returnUri)
-                mImageview?.setImageBitmap(bitmapImage)
-                mImageview?.bringToFront()
+        super.onActivityResult(requestCode, resultCode, data)
 
-                pathfromblank = returnUri.toString()
+        when (requestCode){
+            1 -> {
+                if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK){
 
-                Log.d("URI!!!", returnUri.toString())
+                    // 카메라로부터 받은 데이터가 있을경우에만
+                    val file = File(currentPhotoPath)
+                    if (Build.VERSION.SDK_INT < 28) {
+                        hang.visibility = View.INVISIBLE
+                        camera.visibility =View.INVISIBLE
+                        val bitmap = MediaStore.Images.Media
+                            .getBitmap(activity?.contentResolver, Uri.fromFile(file))  //Deprecated
+                        mImageview?.setImageBitmap(bitmap)
+                        pathfromblank=Uri.fromFile(file).toString()
+                        Log.d("URI!!!", Uri.fromFile(file).toString())
+                    }
+                    else{
+                        val decode = ImageDecoder.createSource(
+                            activity?.contentResolver!!,
+                            Uri.fromFile(file))
+                        val bitmap = ImageDecoder.decodeBitmap(decode)
+                        mImageview?.setImageBitmap(bitmap)
+                        pathfromblank=Uri.fromFile(file).toString()
+                        hang.visibility = View.INVISIBLE
+                        camera.visibility =View.INVISIBLE
+                        Log.d("URI!!!", Uri.fromFile(file).toString())
+                    }
+                }
+            }
+
+            2 -> {
+                if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_GALLERY_TAKE) {
+                        val returnUri = data!!.data
+                        val bitmapImage =
+                            MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, returnUri)
+                        mImageview?.setImageBitmap(bitmapImage)
+                        mImageview?.bringToFront()
+
+                        pathfromblank = returnUri.toString()
+                        hang.visibility = View.INVISIBLE
+                        camera.visibility =View.INVISIBLE
+
+                        Log.d("URI!!!", returnUri.toString())
+                }
             }
         }
     }
@@ -128,8 +159,6 @@ class BlankFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
         detail.setOnClickListener {
-
-
             navController.navigate(R.id.action_blankFragment_to_nextFragment)
         }
 
@@ -145,7 +174,34 @@ class BlankFragment : Fragment() {
         }
 
 
+        view.findViewById<Button>(R.id.camera).setOnClickListener { // 사진 카메라로 부터 받아오기. (클릭시)
+            if ( (activity as MainActivity).checkPermission() ){
+                dispatchTakePictureIntent()
 
+                Log.d("TAG", imgpath.toString())
+                Glide.with(this)
+                    .load(imgpath)
+                    .into(uploadedpicture)
+
+            }
+            else {
+                (activity as MainActivity).requestPermission()
+            }
+        }
+        view.findViewById<TextView>(R.id.gallery).setOnClickListener {
+            if (ActivityCompat.checkSelfPermission(
+                    requireActivity(),
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                    2000
+                )
+            } else {
+                startGallery()
+            }
+        }
 //        ButtonStyle_blank.setOnClickListener{
 //            val popupMenu = PopupMenu(this.activity, ButtonStyle_blank)
 //            popupMenu.menuInflater.inflate(R.menu.popupstyle, popupMenu.menu)
@@ -178,6 +234,8 @@ class BlankFragment : Fragment() {
 //        }
     }
 
+
+
     private fun getRealPathFromURI(contentUri: Uri): String? {
         if (contentUri.path!!.startsWith("/storage")) {
             return contentUri.path
@@ -203,5 +261,69 @@ class BlankFragment : Fragment() {
             cursor?.close()
         }
         return null
+    }
+///////////////////////////////////////////////
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode==1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Log.d("TAG", "Permission:"+permissions[0]+"was"+grantResults[0]+"camera permitted")
+        } else {
+            Log.d("TAG", "camera not permitted")
+        }
+    }
+
+    private fun createImageFile(): File {
+        val timeStamp: String= SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val storageDir: File?= activity?.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        return File.createTempFile(
+            "JPEG_${timeStamp}_", /*prefix*/
+            ".jpg", /*suffix*/
+            storageDir /*directory*/
+        ).apply {
+            currentPhotoPath=absolutePath
+        }
+    }
+
+    private fun dispatchTakePictureIntent() {
+        lateinit var photoURI: Uri
+        Intent(MediaStore.ACTION_IMAGE_CAPTURE).also{ takePictureIntent ->
+            if (takePictureIntent.resolveActivity(activity?.packageManager!!)!=null ) {
+                val photoFile: File? =
+                    try {
+                        createImageFile()
+                    } catch (ex: IOException) {
+                        Log.d("TAG", "error occurred during creating image file")
+                        null
+                    }
+                if (Build.VERSION.SDK_INT<24) {
+                    if (photoFile!=null){
+                        photoURI=Uri.fromFile(photoFile)
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,photoURI)
+                        startActivityForResult(takePictureIntent,REQUEST_IMAGE_CAPTURE)
+                        Log.d("TAG", photoURI.toString())
+                        imgpath=photoURI
+                    }
+                } else {
+                    photoFile?.also {
+                        photoURI= FileProvider.getUriForFile (
+                            requireContext(), "com.example.myapplication", it
+                        )
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
+                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                        Log.d("TAG", photoURI.toString())
+                        imgpath=photoURI
+
+                    }
+                }
+
+            }
+
+        }
+
     }
 }
