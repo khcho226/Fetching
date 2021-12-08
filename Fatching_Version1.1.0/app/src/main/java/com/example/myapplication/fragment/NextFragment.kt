@@ -322,6 +322,7 @@ class NextFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("TAG", "hello world")
+
         uploadPictureCamera.setOnClickListener { // 사진 카메라로 부터 받아오기. (클릭시)
             if ( (activity as MainActivity).checkPermission() ){
                 dispatchTakePictureIntent()
