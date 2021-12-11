@@ -19,39 +19,27 @@ app=Flask(__name__)
 @app.route('/', methods = ["POST"])
 def hello_world():
     if request.method == 'POST':
-        print(flask.request.files)
-        print(flask.request.files.get('image'))
-        # print(flask.request.files['20200912_174631.jpg'])
-        print(flask.request.form)
+
 
         file_dir2 = "C:\\Users\\kim01\\MyWorkload\\photo.png"
-        #a = return_color.result(file_dir2)
+
         root = "./photo.png"
         result, x, y, z, w = return_type.result(root)
-        print(result)
+
 
         first, second, third = return_type.recommend(root)
-        print(first)
-        print(second)
-        print(third)
 
         item = random.randrange(1,4)
         temp = "mannish_"
         if(item == 1):
             path = temp + first[1] +"\label_" +first[1] + "_modified.csv"
-            print(first)
+
         elif(item == 2):
             path = temp + second[1] +"\label_" +second[1] + "_modified.csv"
-            print(second)
+
         elif(item == 3):
             path = temp + third[1] +"\label_" +third[1] + "_modified.csv"
-            print(third)
-        #first[0], first[1], first[2], first[3]
-        #color, category, length, fit
-        print("this is the path")
-        print(path)
-
-        #csv에서는 length color fit
+      
 
         csvf = open(path, 'r', encoding='utf-8')
         rdr = csv.reader(csvf)
@@ -69,7 +57,6 @@ def hello_world():
         csvf.close()  
 
         clothes = random.choice(numbers)
-        print(clothes)
 
         if(item == 1):
             sending = temp + first[1] + "\mannish_" + clothes + "_" + first[1] + ".jpg"
@@ -79,32 +66,16 @@ def hello_world():
             sending = temp + third[1] + "\mannish_" + clothes + "_" + third[1] + ".jpg"
 
 
-        arr = return_type.result(file_dir2) #[color, category, length, fit]
-        print(arr)
+        arr = return_type.result(file_dir2)
 
         file_dir = "C:\\Users\\kim01\\MyWorkload\\photo.png"
-        #f = request.files.get('image')
-        #f.save(file_dir)
         f2 = flask.request.files.get('image')
         f2.save("C:\\Users\\kim01\\MyWorkload\\wtf1.png")
         
         file = []
-
         file.append(file_dir)
-        
-        print(file)
-        #print(a)
-
-        print("fuck")
-        
-        #return a
         return send_file(sending, mimetype='image/jpg')
         
-
-@app.route('/one')
-def hello_one():
-    return 'Hello One'
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
