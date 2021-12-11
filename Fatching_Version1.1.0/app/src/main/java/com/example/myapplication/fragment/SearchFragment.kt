@@ -89,7 +89,7 @@ class SearchFragment : Fragment() {
         button222.setOnClickListener{ ///////////////// 이걸 누르면 사진이 서버로 전송됨.
 
 
-            for(i in 0..0){
+            for(i in 0..5){
 
                 val file1 = File(path.toString()) // 카메라에서 왔으면 im.path를 넣어야 하고 갤러리에서 왔으면 getRealpathfrom(im)을 넣어야한다.
                 Log.d("thi s sdfiaodfjdsaoifja", path!!)

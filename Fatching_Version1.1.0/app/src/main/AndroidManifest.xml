@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         android:requestLegacyExternalStorage="true"
-        android:hardwareAccelerated="false"
+        android:hardwareAccelerated="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:fullBackupContent="@xml/backup_descriptor">
         <provider
