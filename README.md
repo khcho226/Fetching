@@ -1,4 +1,4 @@
-# Fetching: Deep Learning Based Fashion Recommendation Application
+# Fatching: Deep Learning Based Fashion Recommendation Application
 [SWE3028-41] Capstone Design <br />
 Contact e-mail : kim0112hg@naver.com <br />
 Demo Video : https://www.youtube.com/watch?v=hQmCSHVULcM <br />
